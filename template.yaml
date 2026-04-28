@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create S3 buckets for dev, test, and prod
+
+Parameters:
+  Prefix:
+    Type: String
+    Default: myapp
+
+Resources:
+  DevBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${Prefix}-dev-${AWS::AccountId}"
+
+  TestBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${Prefix}-test-${AWS::AccountId}"
+
+  ProdBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${Prefix}-prod-${AWS::AccountId}"
+
+Outputs:
+  DevBucketName:
+    Value: !Ref DevBucket
+
+  TestBucketName:
+    Value: !Ref TestBucket
+
+  ProdBucketName:
+    Value: !Ref ProdBucket
