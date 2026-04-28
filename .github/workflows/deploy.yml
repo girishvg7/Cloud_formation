@@ -32,7 +32,7 @@ jobs:
       - name: Deploy Stack
         run: |
           aws cloudformation deploy \
-            --stack-name param-dev-stack \
+            --stack-name param-test-stack \
             --template-file Parameterization.yaml \
             --capabilities CAPABILITY_NAMED_IAM \
             --parameter-overrides \
