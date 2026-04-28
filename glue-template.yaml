@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: AWS Glue Workflow with Connection and Trigger
+
+Resources:
+
+  GlueConnection:
+    Type: AWS::Glue::Connection
+    Properties:
+      CatalogId: !Ref AWS::AccountId
+      ConnectionInput:
+        Name: my-dummy-connection
+        ConnectionType: JDBC
+        ConnectionProperties:
+          JDBC_CONNECTION_URL: jdbc:mysql://example.com:3306/db
+          USERNAME: testuser
+          PASSWORD: testpass
+
+  GlueWorkflow:
+    Type: AWS::Glue::Workflow
+    Properties:
+      Name: my-glue-workflow
+      Description: Demo Glue Workflow
+
+  GlueTrigger:
+    Type: AWS::Glue::Trigger
+    Properties:
+      Name: my-glue-trigger
+      Type: ON_DEMAND
+      WorkflowName: !Ref GlueWorkflow
+      Actions:
+        - JobName: dummy-job-placeholder
