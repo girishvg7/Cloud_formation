@@ -37,4 +37,4 @@ jobs:
             --capabilities CAPABILITY_NAMED_IAM \
             --parameter-overrides \
               Prefix=myapp \
-              Environment=test
+              Environment=dev
