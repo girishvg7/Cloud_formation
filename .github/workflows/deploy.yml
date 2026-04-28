@@ -29,7 +29,7 @@ jobs:
             --template-body file://Parameterization.yaml
 
       # 4. Deploy Stack
-      - name: Deploy Stack
+      - name: Deploy Stack test
         run: |
           aws cloudformation deploy \
             --stack-name param-test-stack \
