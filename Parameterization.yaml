@@ -19,7 +19,7 @@ Resources:
   # ---------------------------
   # S3 Bucket (Safe Naming)
   # ---------------------------
-  AppBucket:
+  AppBucket
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Sub "${Prefix}-${Environment}-app-bucket-${AWS::AccountId}-${AWS::StackName}"
