@@ -23,7 +23,7 @@ jobs:
           aws-region: us-east-1
 
       # 3. Validate CloudFormation template
-      - name: Validate Template
+      - name: Validate Template test
         run: |
           aws cloudformation validate-template \
             --template-body file://Parameterization.yaml
